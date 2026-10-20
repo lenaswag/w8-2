@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Grammar in Context | English Idioms</title>
+
+<style>
+:root {
+  --navy: #172b3a;
+  --navy-dark: #10212e;
+  --teal: #087f78;
+  --teal-dark: #066760;
+  --mint: #dff4ed;
+  --cream: #f8f7f2;
+  --white: #ffffff;
+  --text: #243746;
+  --muted: #71818d;
+  --border: #e3e9e8;
+  --yellow: #fff0a6;
+  --yellow-soft: #fff8d8;
+  --blue-soft: #e7f1fb;
+  --green-soft: #e3f5e9;
+  --red-soft: #fff0ed;
+  --red: #b94b42;
+  --shadow: 0 12px 40px rgba(25,45,55,.07);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", "Noto Sans KR",
+               "Malgun Gothic", Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.topbar {
+  background: var(--navy);
+  color: white;
+  padding: 17px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.brand span {
+  color: #8de0ca;
+}
+
+.top-label {
+  font-size: 12px;
+  color: #b9d0d1;
+}
+
+.intro {
+  max-width: 1500px;
+  margin: auto;
+  padding: 30px 30px 22px;
+}
+
+.eyebrow {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.intro h1 {
+  font-size: clamp(27px, 3vw, 39px);
+  margin: 7px 0 5px;
+  color: var(--navy);
+  letter-spacing: -.8px;
+}
+
+.intro p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.workspace {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 30px 45px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.reading-panel {
+  position: sticky;
+  top: 20px;
+}
+
+.card-header {
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.number-badge {
+  background: var(--mint);
+  color: var(--teal);
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.small-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.reading-content {
+  padding: 26px 30px 20px;
+}
+
+.reading-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 20px;
+  line-height: 1.35;
+}
+
+.reading-text {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 2.05;
+  color: #354653;
+}
+
+.reading-text p {
+  margin: 0 0 17px;
+}
+
+.idiom {
+  color: #087f78;
+  font-weight: 700;
+}
+
+/* CLICKABLE AUDIO HIGHLIGHT */
+
+.audio-highlight {
+  display: inline;
+  border: none;
+  background: var(--yellow);
+  color: #26343d;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 800;
+  line-height: inherit;
+  padding: 3px 5px;
+  border-radius: 5px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  cursor: pointer;
+  transition: background .2s, box-shadow .2s;
+}
+
+.audio-highlight:hover {
+  background: #ffe17b;
+  box-shadow: 0 0 0 2px rgba(8,127,120,.15);
+}
+
+.audio-highlight:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.audio-highlight.speaking {
+  background: #a9ead6;
+  box-shadow: 0 0 0 3px rgba(8,127,120,.18);
+}
+
+.audio-icon {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--teal);
+  font-family: Arial, sans-serif;
+  font-size: .82em;
+  vertical-align: baseline;
+}
+
+.highlight-legend {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.legend-square {
+  width: 16px;
+  height: 13px;
+  background: var(--yellow);
+  border-radius: 3px;
+}
+
+.audio-status {
+  min-height: 21px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--teal);
+}
+
+.vocab-section {
+  margin: 0 30px 25px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: #f5f9f8;
+  border: 1px solid #e5efec;
+}
+
+.vocab-heading {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--teal);
+  margin-bottom: 9px;
+}
+
+.vocab-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 5px 0;
+  font-size: 12px;
+  border-bottom: 1px solid #e5eeeb;
+}
+
+.vocab-item:last-child {
+  border-bottom: none;
+}
+
+.vocab-item strong {
+  color: var(--navy);
+}
+
+.vocab-item span {
+  color: var(--muted);
+  text-align: right;
+}
+
+.learning-panel {
+  min-height: 650px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border);
+  background: #fbfcfb;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  color: #84939b;
+  padding: 20px 7px;
+  font-size: 13px;
+  font-weight: 800;
+  border-bottom: 3px solid transparent;
+  transition: .2s;
+}
+
+.tab:hover {
+  color: var(--teal);
+  background: #f1f8f5;
+}
+
+.tab.active {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+  background: white;
+}
+
+.tab-content {
+  display: none;
+  padding: 28px 30px 32px;
+  animation: fadeIn .2s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: .3;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--teal);
+  letter-spacing: 1.5px;
+}
+
+.section-title {
+  font-size: 23px;
+  font-weight: 850;
+  color: var(--navy);
+  margin: 6px 0 9px;
+  letter-spacing: -.4px;
+}
+
+.instruction {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0 0 23px;
+}
+
+.sentence-option {
+  width: 100%;
+  display: block;
+  text-align: left;
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 11px;
+  padding: 14px 16px;
+  margin-bottom: 9px;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.7;
+  transition: .15s;
+}
+
+.sentence-option:hover:not(:disabled) {
+  border-color: #8dc9bc;
+  background: #f8fcfa;
+}
+
+.sentence-option.selected {
+  border-color: var(--teal);
+  background: #eaf7f2;
+}
+
+.sentence-option.correct {
+  border-color: #56a67d;
+  background: var(--green-soft);
+}
+
+.sentence-option.incorrect {
+  border-color: #e0a19a;
+  background: var(--red-soft);
+}
+
+.selection-counter {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  margin: 15px 0;
+}
+
+.analysis-box {
+  margin-top: 25px;
+  border-top: 1px solid var(--border);
+  padding-top: 22px;
+}
+
+.analysis-title {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 13px;
+}
+
+.analysis-item {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  margin-bottom: 12px;
+}
+
+.analysis-sentence {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.analysis-parts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.part {
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.part-have {
+  background: #dcecfb;
+  color: #285c87;
+}
+
+.part-been {
+  background: #dff4ed;
+  color: #087f78;
+}
+
+.part-pp {
+  background: var(--yellow-soft);
+  color: #82651c;
+}
+
+.analysis-explanation {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.grammar-formula {
+  background: var(--navy);
+  color: white;
+  border-radius: 13px;
+  padding: 24px 16px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.formula-label {
+  font-size: 11px;
+  color: #b5d1d0;
+  letter-spacing: 1px;
+  font-weight: 800;
+  margin-bottom: 9px;
+}
+
+.formula-text {
+  font-size: clamp(19px, 2.4vw, 26px);
+  font-weight: 850;
+  letter-spacing: .3px;
+}
+
+.formula-text .has {
+  color: #a9d4ff;
+}
+
+.formula-text .been {
+  color: #9ae5ce;
+}
+
+.formula-text .pp {
+  color: #ffe39b;
+}
+
+.grammar-subtitle {
+  font-size: 15px;
+  font-weight: 850;
+  color: var(--navy);
+  margin: 26px 0 10px;
+}
+
+.grammar-description {
+  font-size: 13px;
+  color: #596c78;
+  line-height: 1.9;
+}
+
+.mark {
+  background: var(--yellow);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: 800;
+  color: var(--navy);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.example-card {
+  background: #f6f9f8;
+  border-left: 3px solid var(--teal);
+  border-radius: 8px;
+  padding: 15px 17px;
+  margin: 12px 0;
+}
+
+.example-en {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.example-ko {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.compare-table th {
+  background: #f0f6f4;
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 12px 9px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.compare-table td:nth-child(2) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+}
+
+.practice-progress {
+  display: flex;
+  gap: 6px;
+  margin: 18px 0 24px;
+}
+
+.progress-dot {
+  height: 6px;
+  flex: 1;
+  border-radius: 10px;
+  background: #e6edeb;
+}
+
+.progress-dot.done {
+  background: var(--teal);
+}
+
+.question-card {
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 20px;
+  margin-bottom: 17px;
+}
+
+.question-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--teal);
+  letter-spacing: .8px;
+  margin-bottom: 9px;
+}
+
+.question-en {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0 0 15px;
+}
+
+.answer-input {
+  width: 100%;
+  border: 1.5px solid #d8e2e0;
+  border-radius: 9px;
+  padding: 12px 14px;
+  font-size: 15px;
+  outline: none;
+  background: white;
+}
+
+.answer-input:focus {
+  border-color: var(--teal);
+}
+
+.verb-label {
+  display: inline-block;
+  background: #edf5f2;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.feedback {
+  display: none;
+  padding: 12px 14px;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+
+.feedback.show {
+  display: block;
+}
+
+.feedback.success {
+  background: var(--green-soft);
+  color: #216746;
+}
+
+.feedback.error {
+  background: var(--red-soft);
+  color: #a03e35;
+}
+
+.feedback.info {
+  background: var(--blue-soft);
+  color: #285c87;
+}
+
+.hint {
+  display: none;
+  background: var(--yellow-soft);
+  color: #765c19;
+  border-left: 3px solid #e2b64c;
+  padding: 12px 14px;
+  border-radius: 7px;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.hint.show {
+  display: block;
+}
+
+.btn {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--teal-dark);
+}
+
+.btn-secondary {
+  background: #edf2f0;
+  color: var(--navy);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #dce7e3;
+}
+
+.btn-small {
+  padding: 9px 15px;
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.score-card {
+  background: var(--navy);
+  color: white;
+  border-radius: 15px;
+  padding: 28px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.score-number {
+  font-size: 47px;
+  font-weight: 900;
+  color: #9ae5ce;
+  line-height: 1.4;
+}
+
+.score-label {
+  color: #c4d8d7;
+  font-size: 12px;
+}
+
+.review-item {
+  border-bottom: 1px solid var(--border);
+  padding: 15px 0;
+  font-size: 13px;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-item .english {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  margin: 7px 0;
+}
+
+.review-correct {
+  color: var(--teal);
+  font-weight: 800;
+}
+
+.review-incorrect {
+  color: var(--red);
+  font-weight: 800;
+}
+
+.footer {
+  text-align: center;
+  color: #97a4a9;
+  font-size: 11px;
+  padding: 0 20px 25px;
+}
+
+@media (max-width: 1050px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-panel {
+    position: static;
+  }
+
+  .learning-panel {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    padding: 15px 18px;
+  }
+
+  .top-label {
+    display: none;
+  }
+
+  .intro {
+    padding: 25px 17px 20px;
+  }
+
+  .workspace {
+    padding: 0 12px 30px;
+    gap: 14px;
+  }
+
+  .reading-content {
+    padding: 21px 20px;
+  }
+
+  .reading-text {
+    font-size: 16px;
+  }
+
+  .vocab-section {
+    margin: 0 20px 20px;
+  }
+
+  .tab-content {
+    padding: 23px 19px;
+  }
+
+  .tab {
+    font-size: 11px;
+    padding: 17px 3px;
+  }
+
+  .card-header {
+    padding: 17px 19px;
+  }
+
+  .formula-text {
+    font-size: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    GRAMMAR <span>IN CONTEXT</span>
+  </div>
+  <div class="top-label">
+    HIGH SCHOOL ENGLISH · INTERMEDIATE
+  </div>
+</header>
+
+<div class="intro">
+  <div class="eyebrow">READ · NOTICE · UNDERSTAND · PRACTICE</div>
+  <h1>English Idioms & Present Perfect Passive</h1>
+  <p>영어 관용표현을 읽고, 현재완료 수동태의 형태와 의미를 익혀 봅시다.</p>
+</div>
+
+<div class="workspace">
+
+  <!-- LEFT: READING -->
+
+  <section class="card reading-panel">
+
+    <div class="card-header">
+      <div class="card-title">
+        <span class="number-badge">01</span>
+        Reading Text
+      </div>
+      <span class="small-label">READING</span>
+    </div>
+
+    <div class="reading-content">
+
+      <h2 class="reading-title">
+        Idioms: More Than Just Words
+      </h2>
+
+      <div class="reading-text">
+
+        <p>
+          Have you ever heard someone say,
+          <span class="idiom">"It's a piece of cake"</span>?
+          The person is not talking about food.
+          This idiom means that something is very easy.
+        </p>
+
+        <p>
+          Idioms are expressions whose meanings are different
+          from the meanings of their individual words.
+          They make everyday conversations more interesting.
+          Many English idioms
+          <button
+            type="button"
+            class="audio-highlight"
+            data-speech="have been used"
+            aria-label="have been used 발음 듣기"
+          >have been used <span class="audio-icon" aria-hidden="true">🔊</span></button>
+          for hundreds of years.
+        </p>
+
+        <p>
+          Some idioms come from interesting stories.
+          For example,
+          <span class="idiom">"break the ice"</span>
+          means to make people feel more comfortable
+          in a new situation.
+          This expression
+          <button
+            type="button"
+            class="audio-highlight"
+            data-speech="has been used"
+            aria-label="has been used 발음 듣기"
+          >has been used <span class="audio-icon" aria-hidden="true">🔊</span></button>
+          in many social situations.
+        </p>
+
+        <p>
+          Today, English idioms
+          <button
+            type="button"
+            class="audio-highlight"
+            data-speech="have been shared"
+            aria-label="have been shared 발음 듣기"
+          >have been shared <span class="audio-icon" aria-hidden="true">🔊</span></button>
+          through movies, books, and social media.
+          Learning idioms can help us understand
+          English speakers and their cultures better.
+        </p>
+
+      </div>
+
+      <div class="highlight-legend">
+        <span class="legend-square"></span>
+        강조된 표현을 클릭하면 영어 발음이 재생됩니다.
+      </div>
+
+      <div class="audio-status" id="audioStatus" role="status" aria-live="polite"></div>
+
+    </div>
+
+    <div class="vocab-section">
+      <div class="vocab-heading">KEY EXPRESSIONS</div>
+
+      <div class="vocab-item">
+        <strong>a piece of cake</strong>
+        <span>아주 쉬운 일</span>
+      </div>
+
+      <div class="vocab-item">
+        <strong>break the ice</strong>
+        <span>어색한 분위기를 깨다</span>
+      </div>
+
+      <div class="vocab-item">
+        <strong>individual</strong>
+        <span>개별적인</span>
+      </div>
+
+      <div class="vocab-item">
+        <strong>expression</strong>
+        <span>표현</span>
+      </div>
+
+      <div class="vocab-item">
+        <strong>social situation</strong>
+        <span>사회적 상황</span>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- RIGHT: LEARNING PANEL -->
+
+  <section class="card learning-panel">
+
+    <nav class="tabs" aria-label="학습 단계">
+      <button class="tab active" onclick="switchTab(0)">
+        01 Noticing
+      </button>
+      <button class="tab" onclick="switchTab(1)">
+        02 Grammar
+      </button>
+      <button class="tab" onclick="switchTab(2)">
+        03 Practice
+      </button>
+      <button class="tab" onclick="switchTab(3)">
+        04 Review
+      </button>
+    </nav>
+
+
+    <!-- NOTICING -->
+
+    <div class="tab-content active" id="tab0">
+
+      <div class="section-eyebrow">STEP 01 · NOTICING</div>
+      <h2 class="section-title">문법 패턴 발견하기</h2>
+
+      <p class="instruction">
+        왼쪽 지문을 참고하여 현재완료 수동태가 포함된
+        문장 3개를 선택하세요.
+        정답 확인 후 문법 구조를 분석해 봅시다.
+      </p>
+
+      <div id="noticingOptions"></div>
+
+      <div class="selection-counter" id="selectionCount">
+        선택한 문장: 0 / 3
+      </div>
+
+      <button class="btn" onclick="checkNoticing()">
+        정답 확인
+      </button>
+
+      <div class="feedback" id="noticingFeedback" aria-live="polite"></div>
+
+      <div class="analysis-box" id="noticingAnalysis" style="display:none;">
+
+        <div class="analysis-title">문법 구조 분석</div>
+
+        <div class="analysis-item">
+          <div class="analysis-sentence">
+            Many English idioms
+            <button type="button" class="audio-highlight"
+              data-speech="have been used">
+              have been used <span class="audio-icon" aria-hidden="true">🔊</span>
+            </button>
+            for hundreds of years.
+          </div>
+
+          <div class="analysis-parts">
+            <span class="part part-have">have</span>
+            <span class="part part-been">been</span>
+            <span class="part part-pp">used</span>
+          </div>
+
+          <p class="analysis-explanation">
+            복수 주어 Many English idioms + have been + used
+          </p>
+        </div>
+
+        <div class="analysis-item">
+          <div class="analysis-sentence">
+            This expression
+            <button type="button" class="audio-highlight"
+              data-speech="has been used">
+              has been used <span class="audio-icon" aria-hidden="true">🔊</span>
+            </button>
+            in many social situations.
+          </div>
+
+          <div class="analysis-parts">
+            <span class="part part-have">has</span>
+            <span class="part part-been">been</span>
+            <span class="part part-pp">used</span>
+          </div>
+
+          <p class="analysis-explanation">
+            단수 주어 This expression + has been + used
+          </p>
+        </div>
+
+        <div class="analysis-item">
+          <div class="analysis-sentence">
+            English idioms
+            <button type="button" class="audio-highlight"
+              data-speech="have been shared">
+              have been shared <span class="audio-icon" aria-hidden="true">🔊</span>
+            </button>
+            through movies, books, and social media.
+          </div>
+
+          <div class="analysis-parts">
+            <span class="part part-have">have</span>
+            <span class="part part-been">been</span>
+            <span class="part part-pp">shared</span>
+          </div>
+
+          <p class="analysis-explanation">
+            복수 주어 English idioms + have been + shared
+          </p>
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <span></span>
+        <button class="btn" onclick="switchTab(1)">
+          Grammar Focus →
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- GRAMMAR -->
+
+    <div class="tab-content" id="tab1">
+
+      <div class="section-eyebrow">STEP 02 · GRAMMAR FOCUS</div>
+      <h2 class="section-title">현재완료 수동태 이해하기</h2>
+
+      <p class="instruction">
+        현재완료 수동태의 형태, 의미, 쓰임을 살펴보세요.
+        노란색 표현을 클릭하면 발음을 들을 수 있습니다.
+      </p>
+
+      <div class="grammar-formula">
+        <div class="formula-label">GRAMMAR STRUCTURE</div>
+        <div class="formula-text">
+          <span class="has">has / have</span>
+          +
+          <span class="been">been</span>
+          +
+          <span class="pp">p.p.</span>
+        </div>
+      </div>
+
+      <div class="grammar-subtitle">01. 형태</div>
+
+      <p class="grammar-description">
+        현재완료 수동태는
+        <span class="mark">has / have + been + 과거분사(p.p.)</span>
+        형태로 만들어집니다.
+      </p>
+
+      <div class="example-card">
+        <div class="example-en">
+          This idiom
+          <button type="button" class="audio-highlight"
+            data-speech="has been used">
+            has been used <span class="audio-icon" aria-hidden="true">🔊</span>
+          </button>
+          for many years.
+        </div>
+        <div class="example-ko">
+          이 관용표현은 여러 해 동안 사용되어 왔습니다.
+        </div>
+      </div>
+
+      <div class="grammar-subtitle">02. 의미와 쓰임</div>
+
+      <p class="grammar-description">
+        현재완료 수동태는
+        <span class="mark">과거의 일과 현재의 관련성</span>을
+        나타내면서,
+        <span class="mark">행동을 받는 대상</span>에
+        초점을 맞춥니다.
+      </p>
+
+      <div class="example-card">
+        <div class="example-en">
+          Many idioms
+          <button type="button" class="audio-highlight"
+            data-speech="have been shared">
+            have been shared <span class="audio-icon" aria-hidden="true">🔊</span>
+          </button>
+          online.
+        </div>
+        <div class="example-ko">
+          많은 관용표현이 온라인에서 공유되어 왔습니다.
+        </div>
+      </div>
+
+      <div class="grammar-subtitle">03. 능동태와 수동태 비교</div>
+
+      <div class="example-card">
+        <div class="example-ko">현재완료 능동태</div>
+        <div class="example-en">
+          People <span class="mark">have used</span>
+          this idiom for years.
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-ko">현재완료 수동태</div>
+        <div class="example-en">
+          This idiom
+          <button type="button" class="audio-highlight"
+            data-speech="has been used">
+            has been used <span class="audio-icon" aria-hidden="true">🔊</span>
+          </button>
+          for years.
+        </div>
+      </div>
+
+      <p class="grammar-description">
+        능동태는 <span class="mark">행동을 하는 사람</span>에,
+        수동태는 <span class="mark">행동을 받는 대상</span>에
+        초점을 둡니다.
+      </p>
+
+      <div class="grammar-subtitle">04. 다른 수동태와 비교</div>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>문법</th>
+            <th>예문</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>현재 수동태</td>
+            <td>This idiom <b>is used</b> in English.</td>
+          </tr>
+          <tr>
+            <td>과거 수동태</td>
+            <td>This idiom <b>was used</b> yesterday.</td>
+          </tr>
+          <tr>
+            <td>현재완료 수동태</td>
+            <td>
+              This idiom
+              <button type="button" class="audio-highlight"
+                data-speech="has been used">
+                has been used <span class="audio-icon" aria-hidden="true">🔊</span>
+              </button>
+              for years.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grammar-subtitle">05. 주어에 따른 has / have</div>
+
+      <div class="example-card">
+        <div class="example-en">
+          The expression
+          <button type="button" class="audio-highlight"
+            data-speech="has been used">
+            has been used <span class="audio-icon" aria-hidden="true">🔊</span>
+          </button>.
+        </div>
+
+        <div class="example-en">
+          These expressions
+          <button type="button" class="audio-highlight"
+            data-speech="have been used">
+            have been used <span class="audio-icon" aria-hidden="true">🔊</span>
+          </button>.
+        </div>
+      </div>
+
+      <p class="grammar-description">
+        3인칭 단수 주어에는 <span class="mark">has</span>,
+        복수 주어에는 <span class="mark">have</span>를 사용합니다.
+        I와 you에도 have를 사용합니다.
+      </p>
+
+      <div class="actions">
+        <button class="btn btn-secondary" onclick="switchTab(0)">
+          ← Noticing
+        </button>
+        <button class="btn" onclick="switchTab(2)">
+          Practice →
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- PRACTICE -->
+
+    <div class="tab-content" id="tab2">
+
+      <div class="section-eyebrow">STEP 03 · PRACTICE</div>
+      <h2 class="section-title">문법 연습하기</h2>
+
+      <p class="instruction">
+        객관식과 서술형 문제를 풀어 보세요.
+        틀린 경우 힌트를 참고해 다시 도전할 수 있습니다.
+      </p>
+
+      <div class="practice-progress" id="practiceProgress"></div>
+
+      <div class="grammar-subtitle">PART A · 객관식</div>
+
+      <p class="instruction">
+        문맥과 문법에 맞는 표현을 선택하세요.
+      </p>
+
+      <div id="multipleChoiceContainer"></div>
+
+      <div class="grammar-subtitle">PART B · 서술형</div>
+
+      <p class="instruction">
+        괄호 안의 동사를 현재완료 수동태로 바꾸어
+        빈칸에 들어갈 표현만 작성하세요.
+      </p>
+
+      <div id="writtenContainer"></div>
+
+      <div class="actions">
+        <button class="btn btn-secondary" onclick="switchTab(1)">
+          ← Grammar
+        </button>
+        <button class="btn" onclick="finishPractice()">
+          결과 확인 →
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- REVIEW -->
+
+    <div class="tab-content" id="tab3">
+
+      <div class="section-eyebrow">STEP 04 · REVIEW</div>
+      <h2 class="section-title">학습 결과 확인</h2>
+
+      <p class="instruction">
+        연습 문제의 최종 정답 수를 확인하고
+        핵심 문법을 복습하세요.
+      </p>
+
+      <div id="reviewEmpty">
+        <div class="example-card">
+          Practice를 완료하면 학습 결과가 표시됩니다.
+        </div>
+        <button class="btn" onclick="switchTab(2)">
+          Practice로 이동 →
+        </button>
+      </div>
+
+      <div id="reviewContent" style="display:none;">
+
+        <div class="score-card">
+          <div class="score-label">YOUR PRACTICE SCORE</div>
+          <div class="score-number" id="finalScore">0 / 6</div>
+          <div class="score-label" id="resultMessage"></div>
+        </div>
+
+        <div class="grammar-subtitle">문항별 결과</div>
+        <div id="reviewResults"></div>
+
+        <div class="grammar-subtitle">오늘의 핵심 문법</div>
+
+        <div class="grammar-formula">
+          <div class="formula-label">REMEMBER THIS!</div>
+          <div class="formula-text">
+            <span class="has">has / have</span>
+            +
+            <span class="been">been</span>
+            +
+            <span class="pp">p.p.</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-en">
+            This idiom
+            <button type="button" class="audio-highlight"
+              data-speech="has been used">
+              has been used <span class="audio-icon" aria-hidden="true">🔊</span>
+            </button>
+            for many years.
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-secondary" onclick="switchTab(2)">
+            ← 문제 다시 보기
+          </button>
+          <button class="btn" onclick="restartApp()">
+            처음부터 다시 학습
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<footer class="footer">
+  GRAMMAR IN CONTEXT · ENGLISH IDIOMS · PRESENT PERFECT PASSIVE
+</footer>
+
+<script>
+"use strict";
+
+/* =========================
+   TEXT TO SPEECH
+========================= */
+
+let activeSpeechButton = null;
+let speechRequestId = 0;
+
+function clearSpeechHighlight() {
+  document.querySelectorAll(".audio-highlight.speaking").forEach(button => {
+    button.classList.remove("speaking");
+  });
+
+  activeSpeechButton = null;
+}
+
+function setAudioStatus(message) {
+  const status = document.getElementById("audioStatus");
+  status.textContent = message;
+}
+
+function getEnglishVoice() {
+  if (!("speechSynthesis" in window)) return null;
+
+  const voices = window.speechSynthesis.getVoices();
+
+  const preferred = voices.find(voice =>
+    voice.lang.toLowerCase() === "en-us" &&
+    /natural|google|microsoft|samantha|aria|jenny/i.test(voice.name)
+  );
+
+  return preferred ||
+    voices.find(voice => voice.lang.toLowerCase() === "en-us") ||
+    voices.find(voice => voice.lang.toLowerCase().startsWith("en")) ||
+    null;
+}
+
+function speakExpression(text, button) {
+  if (!("speechSynthesis" in window) ||
+      !("SpeechSynthesisUtterance" in window)) {
+    setAudioStatus("이 브라우저에서는 음성 재생을 지원하지 않습니다.");
+    return;
+  }
+
+  const synth = window.speechSynthesis;
+  const wasSameButton =
+    activeSpeechButton === button && synth.speaking;
+
+  speechRequestId++;
+  const requestId = speechRequestId;
+
+  synth.cancel();
+  clearSpeechHighlight();
+
+  if (wasSameButton) {
+    setAudioStatus("음성 재생이 중지되었습니다.");
+    return;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  utterance.lang = "en-US";
+  utterance.rate = 0.85;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+
+  const voice = getEnglishVoice();
+
+  if (voice) {
+    utterance.voice = voice;
+  }
+
+  activeSpeechButton = button;
+  button.classList.add("speaking");
+
+  utterance.onstart = () => {
+    if (requestId === speechRequestId) {
+      setAudioStatus(`재생 중: ${text}`);
+    }
+  };
+
+  utterance.onend = () => {
+    if (requestId === speechRequestId) {
+      clearSpeechHighlight();
+      setAudioStatus("");
+    }
+  };
+
+  utterance.onerror = event => {
+    if (requestId !== speechRequestId) return;
+
+    clearSpeechHighlight();
+
+    if (event.error !== "canceled" &&
+        event.error !== "interrupted") {
+      setAudioStatus(
+        "음성을 재생하지 못했습니다. 브라우저의 영어 음성 설정을 확인해 주세요."
+      );
+    }
+  };
+
+  synth.speak(utterance);
+}
+
+/*
+  Event delegation:
+  Dynamically created audio buttons also work.
+*/
+
+document.addEventListener("click", event => {
+  const button = event.target.closest("[data-speech]");
+
+  if (!button) return;
+
+  const expression = button.dataset.speech;
+  speakExpression(expression, button);
+});
+
+/* =========================
+   GENERAL NAVIGATION
+========================= */
+
+let currentTab = 0;
+
+function switchTab(index) {
+  currentTab = index;
+
+  document.querySelectorAll(".tab").forEach((tab, i) => {
+    tab.classList.toggle("active", i === index);
+    tab.setAttribute("aria-current", i === index ? "step" : "false");
+  });
+
+  document.querySelectorAll(".tab-content").forEach((content, i) => {
+    content.classList.toggle("active", i === index);
+  });
+
+  if (window.innerWidth <= 1050) {
+    document.querySelector(".learning-panel").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+}
+
+function showFeedback(id, message, type) {
+  const element = document.getElementById(id);
+  element.className = "feedback show " + type;
+  element.textContent = message;
+}
+
+function normalizeAnswer(text) {
+  return String(text)
+    .trim()
+    .toLowerCase()
+    .replace(/[.!?]+$/g, "")
+    .replace(/\s+/g, " ");
+}
+
+function escapeHTML(text) {
+  return String(text).replace(/[&<>"']/g, char => {
+    const map = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    };
+    return map[char];
+  });
+}
+
+/* =========================
+   NOTICING
+========================= */
+
+const noticingSentences = [
+  {
+    text: "The person is not talking about food.",
+    correct: false
+  },
+  {
+    text: "Many English idioms have been used for hundreds of years.",
+    correct: true
+  },
+  {
+    text: "They make everyday conversations more interesting.",
+    correct: false
+  },
+  {
+    text: "This expression has been used in many social situations.",
+    correct: true
+  },
+  {
+    text: "Learning idioms can help us understand English speakers.",
+    correct: false
+  },
+  {
+    text: "English idioms have been shared through movies, books, and social media.",
+    correct: true
+  }
+];
+
+let noticingSelected = new Set();
+let noticingChecked = false;
+
+function renderNoticing() {
+  const container = document.getElementById("noticingOptions");
+  container.innerHTML = "";
+
+  noticingSentences.forEach((sentence, index) => {
+    const button = document.createElement("button");
+    button.className = "sentence-option";
+    button.textContent = sentence.text;
+
+    button.onclick = () => {
+      if (noticingChecked) {
+        resetNoticingFeedback();
+      }
+
+      if (noticingSelected.has(index)) {
+        noticingSelected.delete(index);
+      } else {
+        if (noticingSelected.size >= 3) {
+          showFeedback(
+            "noticingFeedback",
+            "문장은 3개까지만 선택할 수 있습니다.",
+            "info"
+          );
+          return;
+        }
+
+        noticingSelected.add(index);
+      }
+
+      updateNoticingSelection();
+    };
+
+    container.appendChild(button);
+  });
+
+  updateNoticingSelection();
+}
+
+function resetNoticingFeedback() {
+  noticingChecked = false;
+
+  document.getElementById("noticingFeedback").className = "feedback";
+  document.getElementById("noticingAnalysis").style.display = "none";
+
+  document.querySelectorAll("#noticingOptions button").forEach(
+    (button, index) => {
+      button.textContent = noticingSentences[index].text;
+      button.classList.remove("correct", "incorrect");
+    }
+  );
+}
+
+function updateNoticingSelection() {
+  const buttons = document.querySelectorAll("#noticingOptions button");
+
+  buttons.forEach((button, index) => {
+    button.classList.toggle("selected", noticingSelected.has(index));
+  });
+
+  document.getElementById("selectionCount").textContent =
+    `선택한 문장: ${noticingSelected.size} / 3`;
+}
+
+function checkNoticing() {
+  if (noticingSelected.size !== 3) {
+    showFeedback(
+      "noticingFeedback",
+      "문장 3개를 선택해 주세요.",
+      "info"
+    );
+    return;
+  }
+
+  noticingChecked = true;
+
+  const buttons = document.querySelectorAll("#noticingOptions button");
+
+  let correctCount = 0;
+
+  buttons.forEach((button, index) => {
+    const sentence = noticingSentences[index];
+
+    button.classList.remove("selected", "correct", "incorrect");
+
+    if (sentence.correct) {
+      button.classList.add("correct");
+
+      // Keep the sentence option as a selection button.
+      // The separate analysis section contains audio buttons.
+      button.innerHTML = escapeHTML(sentence.text).replace(
+        /has been used|have been used|have been shared/g,
+        match => `<span class="mark">${match}</span>`
+      );
+
+      if (noticingSelected.has(index)) {
+        correctCount++;
+      }
+    } else if (noticingSelected.has(index)) {
+      button.classList.add("incorrect");
+    }
+  });
+
+  document.getElementById("noticingAnalysis").style.display = "block";
+
+  if (correctCount === 3) {
+    showFeedback(
+      "noticingFeedback",
+      "정답입니다! 세 문장 모두 has/have + been + p.p. 구조를 포함하고 있습니다.",
+      "success"
+    );
+  } else {
+    showFeedback(
+      "noticingFeedback",
+      "초록색 문장이 정답입니다. 노란색으로 표시된 문법 표현의 공통점을 살펴보세요.",
+      "info"
+    );
+  }
+}
+
+/* =========================
+   PRACTICE DATA
+========================= */
+
+const multipleChoiceQuestions = [
+  {
+    question: "This expression ______ for many years.",
+    options: [
+      "has used",
+      "has been used",
+      "have been used",
+      "was using"
+    ],
+    answer: 1,
+    hint1: "This expression은 단수 주어입니다.",
+    hint2: "현재완료 수동태는 has/have + been + p.p. 형태입니다.",
+    explanation: "단수 주어 This expression에는 has been used를 사용합니다."
+  },
+  {
+    question: "Many English idioms ______ in movies and books over the years.",
+    options: [
+      "have been used",
+      "has been used",
+      "have using",
+      "was used"
+    ],
+    answer: 0,
+    hint1: "Many English idioms는 복수 주어입니다.",
+    hint2: "복수 주어에는 have been + p.p.를 사용합니다.",
+    explanation: "Many English idioms는 복수 주어이므로 have been used가 알맞습니다."
+  },
+  {
+    question: "The meaning of this idiom ______ by many students since the lesson began.",
+    options: [
+      "has understood",
+      "have been understood",
+      "has been understood",
+      "is understanding"
+    ],
+    answer: 2,
+    hint1: "주어의 중심 명사는 The meaning입니다.",
+    hint2: "단수 주어 + has been + understood 형태를 생각해 보세요.",
+    explanation: "The meaning은 단수 주어이고, 의미가 이해된 것이므로 has been understood가 알맞습니다."
+  }
+];
+
+const writtenQuestions = [
+  {
+    sentence: "This idiom ______ in English for centuries.",
+    verb: "use",
+    answer: "has been used",
+    hint1: "This idiom은 단수 주어입니다. has와 have 중 무엇이 필요할까요?",
+    hint2: "현재완료 수동태: has + been + used",
+    explanation: "단수 주어 This idiom에는 has been used를 사용합니다."
+  },
+  {
+    sentence: "These expressions ______ in many countries over the years.",
+    verb: "share",
+    answer: "have been shared",
+    hint1: "These expressions는 복수 주어입니다.",
+    hint2: "현재완료 수동태: have + been + shared",
+    explanation: "복수 주어 These expressions에는 have been shared를 사용합니다."
+  },
+  {
+    sentence: "The phrase 'break the ice' ______ in many conversations since the 19th century.",
+    verb: "use",
+    answer: "has been used",
+    hint1: "The phrase가 주어입니다. 단수인지 확인하세요.",
+    hint2: "현재완료 수동태: has + been + used",
+    explanation: "단수 주어 The phrase에는 has been used를 사용합니다."
+  }
+];
+
+let mcAnswers = {};
+let mcAttempts = {};
+let writtenAnswers = {};
+let writtenAttempts = {};
+let practiceFinished = false;
+
+/* =========================
+   MULTIPLE CHOICE
+========================= */
+
+function renderMultipleChoice() {
+  const container = document.getElementById("multipleChoiceContainer");
+  container.innerHTML = "";
+
+  multipleChoiceQuestions.forEach((question, qIndex) => {
+    const card = document.createElement("div");
+    card.className = "question-card";
+
+    card.innerHTML = `
+      <div class="question-label">QUESTION ${qIndex + 1}</div>
+      <p class="question-en">${escapeHTML(question.question)}</p>
+      <div id="mcOptions${qIndex}"></div>
+      <div class="feedback" id="mcFeedback${qIndex}" aria-live="polite"></div>
+      <div class="hint" id="mcHint${qIndex}"></div>
+    `;
+
+    container.appendChild(card);
+
+    const options = document.getElementById(`mcOptions${qIndex}`);
+
+    question.options.forEach((option, optionIndex) => {
+      const button = document.createElement("button");
+      button.className = "sentence-option";
+      button.textContent = option;
+
+      button.onclick = () => {
+        if (mcAnswers[qIndex] === question.answer) {
+          return;
+        }
+
+        mcAnswers[qIndex] = optionIndex;
+
+        const correct = optionIndex === question.answer;
+
+        options.querySelectorAll("button").forEach((btn, index) => {
+          btn.classList.remove("selected", "correct", "incorrect");
+
+          if (index === optionIndex) {
+            btn.classList.add(correct ? "correct" : "incorrect");
+          }
+        });
+
+        const hintBox = document.getElementById(`mcHint${qIndex}`);
+
+        if (correct) {
+          showFeedback(
+            `mcFeedback${qIndex}`,
+            `정답입니다! ${question.explanation}`,
+            "success"
+          );
+
+          hintBox.classList.remove("show");
+
+          options.querySelectorAll("button").forEach(btn => {
+            btn.disabled = true;
+          });
+        } else {
+          mcAttempts[qIndex] = (mcAttempts[qIndex] || 0) + 1;
+
+          showFeedback(
+            `mcFeedback${qIndex}`,
+            "다시 시도해 보세요. 아래 힌트를 참고하세요.",
+            "error"
+          );
+
+          hintBox.classList.add("show");
+          hintBox.textContent =
+            mcAttempts[qIndex] === 1
+              ? `힌트 1: ${question.hint1}`
+              : `힌트 2: ${question.hint2}`;
+        }
+
+        updatePracticeProgress();
+      };
+
+      options.appendChild(button);
+    });
+  });
+}
+
+/* =========================
+   WRITTEN PRACTICE
+========================= */
+
+function renderWrittenQuestions() {
+  const container = document.getElementById("writtenContainer");
+  container.innerHTML = "";
+
+  writtenQuestions.forEach((question, index) => {
+    const card = document.createElement("div");
+    card.className = "question-card";
+
+    card.innerHTML = `
+      <div class="question-label">QUESTION ${index + 4}</div>
+
+      <p class="question-en">${escapeHTML(question.sentence)}</p>
+
+      <div class="verb-label">
+        VERB: ${escapeHTML(question.verb)}
+      </div>
+
+      <input
+        class="answer-input"
+        id="writtenInput${index}"
+        type="text"
+        placeholder="빈칸에 들어갈 표현을 입력하세요"
+        autocomplete="off"
+      >
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-small" id="writtenButton${index}"
+          onclick="checkWritten(${index})">
+          정답 확인
+        </button>
+      </div>
+
+      <div class="feedback" id="writtenFeedback${index}" aria-live="polite"></div>
+      <div class="hint" id="writtenHint${index}"></div>
+    `;
+
+    container.appendChild(card);
+
+    document.getElementById(`writtenInput${index}`).addEventListener(
+      "keydown",
+      event => {
+        if (event.key === "Enter") {
+          checkWritten(index);
+        }
+      }
+    );
+  });
+}
+
+function checkWritten(index) {
+  const question = writtenQuestions[index];
+  const input = document.getElementById(`writtenInput${index}`);
+
+  if (writtenAnswers[index] === normalizeAnswer(question.answer)) {
+    return;
+  }
+
+  const answer = normalizeAnswer(input.value);
+
+  if (!answer) {
+    showFeedback(
+      `writtenFeedback${index}`,
+      "답을 먼저 입력해 주세요.",
+      "info"
+    );
+    return;
+  }
+
+  writtenAnswers[index] = answer;
+
+  const correct = answer === normalizeAnswer(question.answer);
+  const hintBox = document.getElementById(`writtenHint${index}`);
+
+  if (correct) {
+    showFeedback(
+      `writtenFeedback${index}`,
+      `정답입니다! ${question.explanation}`,
+      "success"
+    );
+
+    hintBox.classList.remove("show");
+    input.disabled = true;
+    document.getElementById(`writtenButton${index}`).disabled = true;
+  } else {
+    writtenAttempts[index] = (writtenAttempts[index] || 0) + 1;
+
+    showFeedback(
+      `writtenFeedback${index}`,
+      "정답이 아닙니다. 힌트를 참고하여 다시 작성해 보세요.",
+      "error"
+    );
+
+    hintBox.classList.add("show");
+    hintBox.textContent =
+      writtenAttempts[index] === 1
+        ? `힌트 1: ${question.hint1}`
+        : `힌트 2: ${question.hint2}`;
+  }
+
+  updatePracticeProgress();
+}
+
+/* =========================
+   PRACTICE PROGRESS
+========================= */
+
+function updatePracticeProgress() {
+  const container = document.getElementById("practiceProgress");
+  container.innerHTML = "";
+
+  for (let i = 0; i < 6; i++) {
+    const dot = document.createElement("div");
+    dot.className = "progress-dot";
+
+    let correct = false;
+
+    if (i < 3) {
+      correct = mcAnswers[i] === multipleChoiceQuestions[i].answer;
+    } else {
+      const index = i - 3;
+      correct =
+        writtenAnswers[index] ===
+        normalizeAnswer(writtenQuestions[index].answer);
+    }
+
+    if (correct) {
+      dot.classList.add("done");
+    }
+
+    container.appendChild(dot);
+  }
+}
+
+/* =========================
+   REVIEW
+========================= */
+
+function finishPractice() {
+  const unanswered = [];
+
+  multipleChoiceQuestions.forEach((question, index) => {
+    if (mcAnswers[index] === undefined) {
+      unanswered.push(index + 1);
+    }
+  });
+
+  writtenQuestions.forEach((question, index) => {
+    if (writtenAnswers[index] === undefined) {
+      unanswered.push(index + 4);
+    }
+  });
+
+  if (unanswered.length > 0) {
+    alert(
+      `아직 답하지 않은 문제가 있습니다: ${unanswered.join(", ")}번`
+    );
+    return;
+  }
+
+  let score = 0;
+  let reviewHTML = "";
+
+  multipleChoiceQuestions.forEach((question, index) => {
+    const correct = mcAnswers[index] === question.answer;
+
+    if (correct) score++;
+
+    reviewHTML += `
+      <div class="review-item">
+        <div class="${correct ? "review-correct" : "review-incorrect"}">
+          문제 ${index + 1} · ${correct ? "정답 ✓" : "오답 ✗"}
+        </div>
+        <div class="english">${escapeHTML(question.question)}</div>
+        <div>정답: <strong>${escapeHTML(question.options[question.answer])}</strong></div>
+        <div>${escapeHTML(question.explanation)}</div>
+      </div>
+    `;
+  });
+
+  writtenQuestions.forEach((question, index) => {
+    const correct =
+      writtenAnswers[index] === normalizeAnswer(question.answer);
+
+    if (correct) score++;
+
+    reviewHTML += `
+      <div class="review-item">
+        <div class="${correct ? "review-correct" : "review-incorrect"}">
+          문제 ${index + 4} · ${correct ? "정답 ✓" : "오답 ✗"}
+        </div>
+        <div class="english">${escapeHTML(question.sentence)}</div>
+        <div>정답: <strong>${escapeHTML(question.answer)}</strong></div>
+        <div>${escapeHTML(question.explanation)}</div>
+      </div>
+    `;
+  });
+
+  document.getElementById("finalScore").textContent = `${score} / 6`;
+  document.getElementById("reviewResults").innerHTML = reviewHTML;
+
+  let message;
+
+  if (score === 6) {
+    message = "모든 문제를 맞혔습니다!";
+  } else if (score >= 4) {
+    message = "잘했어요! 틀린 문제를 다시 복습해 보세요.";
+  } else {
+    message = "문법 구조를 다시 확인하고 연습해 보세요.";
+  }
+
+  document.getElementById("resultMessage").textContent = message;
+
+  document.getElementById("reviewEmpty").style.display = "none";
+  document.getElementById("reviewContent").style.display = "block";
+
+  practiceFinished = true;
+  switchTab(3);
+}
+
+/* =========================
+   RESTART
+========================= */
+
+function restartApp() {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+
+  speechRequestId++;
+  clearSpeechHighlight();
+  setAudioStatus("");
+
+  noticingSelected = new Set();
+  noticingChecked = false;
+
+  mcAnswers = {};
+  mcAttempts = {};
+  writtenAnswers = {};
+  writtenAttempts = {};
+  practiceFinished = false;
+
+  document.getElementById("noticingFeedback").className = "feedback";
+  document.getElementById("noticingAnalysis").style.display = "none";
+
+  document.getElementById("reviewEmpty").style.display = "block";
+  document.getElementById("reviewContent").style.display = "none";
+
+  renderNoticing();
+  renderMultipleChoice();
+  renderWrittenQuestions();
+  updatePracticeProgress();
+
+  switchTab(0);
+}
+
+/* =========================
+   INITIALIZE
+========================= */
+
+renderNoticing();
+renderMultipleChoice();
+renderWrittenQuestions();
+updatePracticeProgress();
+
+</script>
+
+</body>
+</html>
